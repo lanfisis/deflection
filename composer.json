@@ -1,0 +1,21 @@
+
+{
+    "name": "lanfisis/deflection",
+    "type": "library",
+    "description": "A library to generate php class for file or display",
+    "keywords": ["generator"],
+    "homepage": "https://github.com/lanfisis/deflection",
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "David Buros",
+            "email": "david.buros@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": { "Deflection": "src/" }
+    }
+}
