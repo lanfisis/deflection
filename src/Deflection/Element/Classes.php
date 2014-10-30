@@ -56,6 +56,13 @@ class Classes
     protected $functions = array();
 
     /**
+     * Class params
+     *
+     * @var array
+     */
+    protected $params = array();
+
+    /**
      * Is an abstract class
      *
      * @return \Deflection\Element\Classes
@@ -88,6 +95,17 @@ class Classes
     {
         return $this->namespace;
     }
+
+    /**
+     * Returns class full name
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->getNamespace().'\\'.$this->getName();
+    }
+
 
     /**
      * Add a class to extend
@@ -163,7 +181,31 @@ class Classes
     /**
      * Add function to structure
      *
-     * @param (\Deflection\Element\Functions $function Function
+     * @param \Deflection\Element\Param $param Param
+     *
+     * @return \Deflection\Element\Classes
+     */
+    public function addParam(\Deflection\Element\Param $param)
+    {
+        $element = $param->getElement();
+        $this->params = array_merge($this->params, array(''), $element);
+        return $this;
+    }
+
+    /**
+     * Return struct params
+     *
+     * @return array
+     */
+    public function getParams()
+    {
+        return $this->params;
+    }
+
+    /**
+     * Add param to structure
+     *
+     * @param \Deflection\Element\Functions $function Function
      *
      * @return \Deflection\Element\Classes
      */
@@ -221,6 +263,7 @@ class Classes
             $this->addLine(array('implements '.implode(', ', $this->getImplements())));
         }
         $this->startBlock();
+        $this->addLine($this->getParams());
         $this->addLine($this->getFunctions());
         $this->endBlock();
         return $this->getLines();

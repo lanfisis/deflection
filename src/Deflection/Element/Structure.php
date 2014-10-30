@@ -63,7 +63,7 @@ class Structure
      *
      * @return \Deflection\Element\Classes
      */
-    public function setDocbloc(Docblock $docblock)
+    public function setDocblock(Docblock $docblock)
     {
         $this->docblock = $docblock;
         return $this;

@@ -58,6 +58,6 @@ class Generator
             }
             return $output;
         };
-        return !$this->class ?: $display($this->class->getElement(), $this->tab);
+        return !$this->class ?: "<?php\n".$display($this->class->getElement(), $this->tab);
     }
 }
