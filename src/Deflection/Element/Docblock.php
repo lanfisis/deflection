@@ -122,7 +122,7 @@ class Docblock
             foreach ($this->var_types as $name => $type) {
                 $type = str_pad($type, $type_ltgh);
                 $param = str_pad($name, $var_ltgh);
-                $this->addLine('@var '.$type.'$'.$param.' '.$this->var_descriptions[$name]);
+                $this->addLine('@param '.$type.'$'.$param.' '.$this->var_descriptions[$name]);
             }
             $this->addBlankLine();
         }
