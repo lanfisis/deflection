@@ -90,6 +90,19 @@ class Docblock
     }
 
     /**
+     * Set all params at once
+     * 
+     * @param array $params Params
+     *
+     * @return \Deflection\Element\Docblock
+     */
+    public function setParams($params)
+    {
+        $this->params = $params;
+        return $this;
+    }
+
+    /**
      * Generate docblock
      *
      * @return \Deflection\Element\Docblock
