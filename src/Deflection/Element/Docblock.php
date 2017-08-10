@@ -130,7 +130,13 @@ class Docblock
         if (count($this->params) > 0) {
             $params_ltgh = array_map('strlen', array_keys($this->params));
             foreach ($this->params as $param => $value) {
-                $this->addLine('@'.str_pad($param, max($params_ltgh)).' '.$value);
+                if (is_array($value)) {
+                    foreach ($value as $subValue) {
+                        $this->addLine('@' . str_pad($param, max($params_ltgh)) . ' ' . $subValue);
+                    }
+                } else {
+                    $this->addLine('@'.str_pad($param, max($params_ltgh)).' '.$value);
+                }
             }
         }
 

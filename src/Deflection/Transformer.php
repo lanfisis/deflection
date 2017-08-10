@@ -28,7 +28,7 @@ class Transformer
         $class = new Classes();
         if (isset($definition['docblock'])) {
             $docblock = $this->arrayToDocblockElement($definition['docblock']);
-            $class->setDocbloc($docblock);
+            $class->setDocblock($docblock);
         }
         if (isset($definition['namespace'])) {
             $class->setNamespace($definition['namespace']);
@@ -102,7 +102,7 @@ class Transformer
         $function = new Functions;
         if (isset($definition['docblock'])) {
             $docblock = $this->arrayToDocblockElement($definition['docblock']);
-            $function->setDocbloc($docblock);
+            $function->setDocblock($docblock);
         }
         if (isset($definition['public'])) {
             $function->isPublic(true);
